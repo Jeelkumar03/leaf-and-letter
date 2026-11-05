@@ -46,6 +46,7 @@ import {
     Check,
     CalendarDays,
 } from "lucide-react";
+import { Analytics } from "@vercel/analytics/react";
 import "./styles.css";
 
 const seed = [
@@ -1808,13 +1809,18 @@ function App() {
         );
     }
 
-    return user ? (
-        <LibraryApp
-            user={user}
-            onLogout={() => signOut(auth)}
-        />
-    ) : (
-        <AuthScreen />
+    return (
+        <>
+            {user ? (
+                <LibraryApp
+                    user={user}
+                    onLogout={() => signOut(auth)}
+                />
+            ) : (
+                <AuthScreen />
+            )}
+            <Analytics />
+        </>
     );
 }
 
