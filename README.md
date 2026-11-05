@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="public/logo.png" width="150" alt="Leaf & Letter Logo">
+<img src="public/logo-v2.png" width="150" alt="Leaf & Letter Logo">
 
 # Leaf & Letter 🌿
 
