@@ -504,7 +504,7 @@ function LibraryApp({ user, onLogout }) {
             <aside className={`sidebar ${mobile ? "open" : ""}`}>
                 <div className="brand">
                     <img
-                        src="/logo.png"
+                        src="/logo-v2.png"
                         alt="Leaf & Letter"
                         className="brand-logo"
                     />
@@ -1650,9 +1650,9 @@ function AuthScreen() {
             <form className="auth-card" onSubmit={submit}>
                 <div className="brand-mark auth-mark">
                     <img
-                        src="/logo.png"
+                        src="/logo-v2.png"
                         alt="Leaf & Letter"
-                        className="auth-logo"
+                        className="brand-logo"
                     />
                 </div>
 
