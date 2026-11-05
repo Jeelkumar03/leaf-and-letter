@@ -1,93 +1,442 @@
-# Leaf & Letter — Phase 4
+<div align="center">
 
-Phase 4 adds installable PWA support and prepares the React + Vite + Firebase app for HTTPS hosting on Vercel.
+# 🌿 Leaf & Letter
 
-## A. Run locally
+### Every book leaves a story. Every page leaves a mark.
 
-1. Extract the ZIP and open the `leaf-and-letter` folder in VS Code.
-2. Create `.env` beside `package.json` by copying `.env.example` and entering the Firebase Web App values.
-3. In PowerShell:
+**Your personal digital library. A beautiful space for every story you read.**
 
-   ```powershell
-   npm install
-   npm run dev
-   ```
+[Live Website](https://leaf-and-letter-jade.vercel.app) · [Report a Bug](https://github.com/Jeelkumar03/leaf-and-letter/issues) · [GitHub Repository](https://github.com/Jeelkumar03/leaf-and-letter)
 
-4. For a production build test:
+<br/>
 
-   ```powershell
-   npm run build
-   npm run preview
-   ```
+*Read. Remember. Reflect.*
 
-## B. Deploy using GitHub + Vercel
+</div>
 
-### 1. Create a GitHub repository
+---
 
-1. Sign in to GitHub and create a new **private** repository named `leaf-and-letter`.
-2. Open the project folder in VS Code.
-3. Confirm `.env` is not included. `.gitignore` already excludes `.env` and `.env.local`.
-4. Use VS Code Source Control to initialize Git, commit the project, and publish/push it to the private GitHub repository. Alternatively, use GitHub Desktop.
+## 📖 About the Project
 
-Do not upload Firebase service-account JSON files or any private credentials. The Firebase Web App config used by this frontend is public client configuration; Firestore rules must enforce access control.
+**Leaf & Letter** is a personal digital library designed to bring your reading life into one beautifully organized space.
 
-### 2. Import into Vercel
+It provides a dedicated environment to keep track of the books you read, maintain your reading collection, and preserve your personal reading journey.
 
-1. Open https://vercel.com/ and sign in with GitHub.
-2. Choose **Add New → Project** and import `leaf-and-letter`.
-3. Vercel should detect Vite. Confirm:
-   - Framework preset: **Vite**
-   - Build command: `npm run build`
-   - Output directory: `dist`
-   - Install command: `npm install`
-4. Before deploying, open **Environment Variables** and add these six variables using the exact values from your local `.env`:
-   - `VITE_FIREBASE_API_KEY`
-   - `VITE_FIREBASE_AUTH_DOMAIN`
-   - `VITE_FIREBASE_PROJECT_ID`
-   - `VITE_FIREBASE_STORAGE_BUCKET`
-   - `VITE_FIREBASE_MESSAGING_SENDER_ID`
-   - `VITE_FIREBASE_APP_ID`
-5. Apply them to **Production**, **Preview**, and **Development** as needed, then click **Deploy**.
+Inspired by the warmth of traditional libraries and the elegance of editorial design, Leaf & Letter combines a sophisticated visual experience with modern web technologies.
 
-### 3. Authorize the production domain in Firebase
+Whether you're reading your first book or maintaining a lifelong collection, Leaf & Letter gives every book a place and every reading journey a story.
 
-After Vercel gives you a deployment URL (for example, `your-project.vercel.app`):
+## ✨ Features
 
-1. Firebase Console → **Authentication → Settings → Authorized domains**.
-2. Add the hostname only, e.g. `your-project.vercel.app` (no `https://` and no path).
-3. Confirm **Authentication → Sign-in method** has Email/Password and Google enabled.
-4. Open Firestore → **Rules**, publish the rules in this repository's `firestore.rules` file.
-5. Open the Vercel URL and test registration, login, Google sign-in, adding a book, refresh, and sign-out.
+### 📚 Personal Digital Library
+- Maintain your personal book collection.
+- Keep your reading library organized.
+- Access your library through your account.
+- Persist your library data using Firebase Firestore.
 
-If you later attach a custom domain, add that hostname to Firebase Authorized domains too.
+### 🔐 Authentication
+- Create an account using email and password.
+- Sign in using Google authentication.
+- Secure, user-specific library access.
+- Manage your personal library independently.
 
-## C. Install on iPhone
+### 🎨 Elegant User Interface
+- Modern editorial library aesthetic.
+- Warm cream backgrounds.
+- Chocolate brown and burgundy brand palette.
+- Elegant serif typography paired with modern sans-serif typography.
+- Responsive layouts for different screen sizes.
 
-1. Open the deployed HTTPS Vercel URL in **Safari** on the iPhone.
-2. Tap **Share** (square with upward arrow).
-3. Choose **Add to Home Screen**.
-4. Keep the suggested name `Leaf & Letter`, then tap **Add**.
-5. Launch it from the new Home Screen icon.
+### 🌙 Light & Dark Themes
+- Light theme for a warm reading experience.
+- Dark theme for comfortable viewing.
+- Consistent visual identity across themes.
 
-The PWA shell and static assets are cacheable for repeat visits. Firebase authentication and Firestore operations still require an internet connection; this is not full offline book editing or offline synchronization.
+### 📱 Progressive Web Application
+- Installable application experience.
+- Responsive across desktop, tablet, and mobile.
+- Application icons and PWA metadata.
+- Service worker support.
+- Caching of the application shell and selected static assets.
 
-## D. Updating the live website
+---
 
-After changing code:
+## 🎨 Brand Identity
 
-1. Save the files.
-2. Commit and push the changes to the connected GitHub branch.
-3. Vercel automatically creates a new deployment.
+Leaf & Letter follows a modern editorial library design philosophy.
 
-## Firebase security
+| Element | Specification |
+|---|---|
+| Brand Name | Leaf & Letter |
+| Tagline | Every book leaves a story. Every page leaves a mark. |
+| Primary Colours | Chocolate Brown & Burgundy |
+| Background | Warm Cream |
+| Typography | Elegant Serif + Modern Sans-serif |
+| Design Language | Modern Editorial Library |
+| Application Type | Progressive Web Application |
+| Themes | Light & Dark |
 
-The `firestore.rules` file restricts each user's private library document to that authenticated user's UID. Publish these rules in Firebase before using the public site. Never use open rules such as `allow read, write: if true`.
+The visual identity is designed to feel warm, sophisticated, minimal, and timeless.
 
-## Current scope and limitations
+---
 
-- Firebase email/password and Google authentication.
-- Per-user Firestore library persistence.
-- Responsive layout and installable PWA metadata/icons/service worker.
-- Static app shell and selected external assets are cached; cloud data is not available offline.
-- No custom domain is included; Vercel provides a default `vercel.app` domain.
-- Existing Phase 2 browser-only data is not automatically migrated to Firestore.
+## 🛠️ Technology Stack
+
+Leaf & Letter is built using modern web technologies.
+
+| Technology | Purpose |
+|---|---|
+| React 18 | Frontend user interface |
+| Vite 6 | Development server and build tooling |
+| JavaScript | Application development |
+| Firebase Authentication | User authentication |
+| Cloud Firestore | Cloud database and library persistence |
+| Lucide React | Interface icons |
+| Vite PWA Plugin | Progressive Web App functionality |
+| Vercel | Application hosting and deployment |
+| Git & GitHub | Version control and source management |
+
+---
+
+## 🏗️ Application Architecture
+
+Leaf & Letter follows a client-side application architecture.
+
+**Application Flow:**
+
+```text
+                USER
+                  |
+                  v
+          React Application
+                  |
+          +-------+-------+
+          |               |
+          v               v
+     Authentication   Application UI
+          |               |
+          v               v
+       Firebase       Library Features
+          |               |
+          +-------+-------+
+                  |
+                  v
+             Firestore
+                  |
+                  v
+          User-specific Data
+```
+
+### Architecture Components
+
+**Frontend**
+- React handles the application interface and user interactions.
+- Vite provides the development and production build environment.
+- Lucide React provides interface icons.
+
+**Authentication**
+- Firebase Authentication manages user sign-in and registration.
+- Supports email/password and Google authentication.
+
+**Database**
+- Cloud Firestore stores user-specific library information.
+- Security rules restrict access to the authenticated user's own data.
+
+**Hosting**
+- Vercel hosts the production application.
+- GitHub integration supports automated deployments.
+
+---
+
+## 🚀 Getting Started
+
+Follow these instructions to run Leaf & Letter locally.
+
+### 1. Prerequisites
+
+Install the following:
+
+- Node.js
+- npm
+- Git
+- Visual Studio Code (recommended)
+- A Firebase project
+
+### 2. Clone the Repository
+
+```bash
+git clone https://github.com/Jeelkumar03/leaf-and-letter.git
+```
+
+Navigate into the project:
+
+```bash
+cd leaf-and-letter
+```
+
+### 3. Install Dependencies
+
+```bash
+npm install
+```
+
+### 4. Configure Firebase Environment Variables
+
+Create a `.env` file in the root directory, alongside `package.json`.
+
+Add your Firebase Web App configuration:
+
+```env
+VITE_FIREBASE_API_KEY=your_api_key
+VITE_FIREBASE_AUTH_DOMAIN=your_auth_domain
+VITE_FIREBASE_PROJECT_ID=your_project_id
+VITE_FIREBASE_STORAGE_BUCKET=your_storage_bucket
+VITE_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
+VITE_FIREBASE_APP_ID=your_app_id
+```
+
+Replace the placeholder values with your actual Firebase project configuration.
+
+**Important:** Never commit your `.env` file to GitHub.
+
+### 5. Start the Development Server
+
+```bash
+npm run dev
+```
+
+Vite will provide a local development URL, typically:
+
+```text
+http://localhost:5173
+```
+
+Open the URL in your browser.
+
+### 6. Build for Production
+
+```bash
+npm run build
+```
+
+The production build will be generated inside:
+
+```text
+dist/
+```
+
+To preview the production build locally:
+
+```bash
+npm run preview
+```
+
+---
+
+## 🔥 Firebase Configuration
+
+Leaf & Letter uses Firebase for authentication and cloud data persistence.
+
+### Authentication Setup
+
+1. Open the Firebase Console.
+2. Select your Firebase project.
+3. Navigate to Authentication.
+4. Open Sign-in Method.
+5. Enable:
+   - Email/Password
+   - Google
+
+### Firestore Setup
+
+1. Open Firestore Database.
+2. Create a database if one does not already exist.
+3. Navigate to the Rules section.
+4. Publish the security rules provided in:
+
+```text
+firestore.rules
+```
+
+### Security
+
+The Firestore security rules are designed to ensure that authenticated users can access only their own private library documents.
+
+Never use unrestricted rules such as:
+
+```javascript
+allow read, write: if true;
+```
+
+Firebase client configuration is not a substitute for database security. Access control must be enforced through Firebase Authentication and Firestore Security Rules.
+
+---
+
+## 🌐 Deployment
+
+Leaf & Letter is configured for deployment using GitHub and Vercel.
+
+### Deploy with Vercel
+
+1. Push your project to GitHub.
+2. Open [Vercel](https://vercel.com/).
+3. Sign in using GitHub.
+4. Select **Add New → Project**.
+5. Import the `leaf-and-letter` repository.
+6. Configure the following:
+
+| Setting | Value |
+|---|---|
+| Framework Preset | Vite |
+| Build Command | `npm run build` |
+| Output Directory | `dist` |
+| Install Command | `npm install` |
+
+### Configure Environment Variables
+
+Add all six Firebase environment variables in Vercel:
+
+- `VITE_FIREBASE_API_KEY`
+- `VITE_FIREBASE_AUTH_DOMAIN`
+- `VITE_FIREBASE_PROJECT_ID`
+- `VITE_FIREBASE_STORAGE_BUCKET`
+- `VITE_FIREBASE_MESSAGING_SENDER_ID`
+- `VITE_FIREBASE_APP_ID`
+
+Apply them to the required deployment environments.
+
+### Configure Firebase Authorized Domains
+
+After deployment:
+
+1. Open Firebase Console.
+2. Navigate to Authentication → Settings.
+3. Open Authorized Domains.
+4. Add your Vercel deployment hostname.
+
+For example:
+
+```text
+your-project.vercel.app
+```
+
+Once configured, deploy the application.
+
+**Live Application:** [Leaf & Letter](https://leaf-and-letter-jade.vercel.app)
+
+---
+
+## 📱 Install as an Application
+
+Leaf & Letter supports installation as a Progressive Web Application.
+
+### Android
+
+1. Open the deployed website in Chrome.
+2. Open the browser menu.
+3. Select Install App or Add to Home Screen.
+4. Complete the installation.
+
+### iPhone / iPad
+
+1. Open the website in Safari.
+2. Tap the Share button.
+3. Select Add to Home Screen.
+4. Confirm the installation.
+
+### Desktop
+
+1. Open the website in a supported browser.
+2. Look for the installation icon in the browser's address bar.
+3. Select Install.
+
+**Offline Availability:** The application shell and selected static assets can be cached for repeat visits. Authentication and Firestore operations require an internet connection. Full offline library editing and synchronization are not currently supported.
+
+---
+
+## 🔒 Security & Privacy
+
+Security is an important part of Leaf & Letter.
+
+The application uses:
+
+- Firebase Authentication for identity management.
+- Firestore Security Rules for user-specific data access.
+- Environment variables for Firebase client configuration.
+- Git ignore rules to prevent accidental commits of local environment files.
+
+Users should never share private credentials or Firebase service-account keys.
+
+---
+
+## 📌 Current Project Scope
+
+The current implementation includes:
+
+- React + Vite application.
+- Firebase email/password authentication.
+- Google authentication.
+- User-specific Firestore library persistence.
+- Responsive application interface.
+- Light and dark themes.
+- Installable PWA configuration.
+- Vercel deployment configuration.
+- Firestore security rules.
+
+### Current Limitations
+
+- Cloud-based library operations require internet connectivity.
+- Full offline editing and synchronization are not implemented.
+- Existing browser-only data from earlier versions is not automatically migrated to Firestore.
+- The application currently uses a Vercel-provided domain.
+
+---
+
+## 🔄 Updating the Application
+
+The project uses a GitHub → Vercel deployment workflow.
+
+Whenever you make changes:
+
+```bash
+git add .
+git commit -m "Describe your changes"
+git push origin main
+```
+
+Vercel automatically starts a new deployment when changes are pushed to the connected production branch.
+
+---
+
+## 🗺️ Project Vision
+
+Leaf & Letter aims to become more than a simple book tracker.
+
+The long-term vision is to create a personal digital reading sanctuary where readers can organize their collections, document their reading journeys, preserve meaningful passages, and build a lasting relationship with the books they read.
+
+The goal is simple:
+
+**Make every book count. Make every page memorable.**
+
+---
+
+## 👨‍💻 Author
+
+**Jeel Agravat**
+
+Creator and Developer of Leaf & Letter.
+
+- GitHub: [@Jeelkumar03](https://github.com/Jeelkumar03)
+- Project Repository: [leaf-and-letter](https://github.com/Jeelkumar03/leaf-and-letter)
+
+---
+
+<div align="center">
+
+### 🌿 Leaf & Letter
+
+*Every book leaves a story. Every page leaves a mark.*
+
+**Built with care, for people who love reading.**
+
+</div>
