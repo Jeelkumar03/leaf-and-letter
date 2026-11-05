@@ -1,5 +1,13 @@
 <div align="center">
 
+<img src="public/logo.png" width="150" alt="Leaf & Letter Logo">
+
+# Leaf & Letter 🌿
+
+### Every book leaves a story. Every page leaves a mark.
+
+</div>
+
 # 🌿 Leaf & Letter
 
 ### Every book leaves a story. Every page leaves a mark.
@@ -25,6 +33,23 @@ It provides a dedicated environment to keep track of the books you read, maintai
 Inspired by the warmth of traditional libraries and the elegance of editorial design, Leaf & Letter combines a sophisticated visual experience with modern web technologies.
 
 Whether you're reading your first book or maintaining a lifelong collection, Leaf & Letter gives every book a place and every reading journey a story.
+
+## 🖼️ Application Preview
+
+### Dashboard
+![Dashboard](public/screenshots/dashboard.png)
+
+### Personal Library
+![Library](public/screenshots/library.png)
+
+### Authentication
+![Authentication](public/screenshots/authentication.png)
+
+### Light Theme
+![Light Theme](public/screenshots/light-theme.png)
+
+### Dark Theme
+![Dark Theme](public/screenshots/dark-theme.png)
 
 ## ✨ Features
 
